@@ -25,8 +25,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 50px; /* Increased padding for modern look */
-            background: rgba(0, 0, 0, 0.9); /* Slightly darker for professionalism */
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.9);
             position: fixed;
             width: 100%;
             top: 0;
@@ -36,7 +36,7 @@
         }
 
         .navbar .logo {
-            font-size: 28px; /* Larger logo */
+            font-size: 28px;
             font-weight: 700;
             color: cyan;
         }
@@ -48,7 +48,7 @@
         .nav-toggle-label {
             display: none;
             cursor: pointer;
-            width: 40px; /* Larger tap target */
+            width: 40px;
             height: 30px;
             position: relative;
             z-index: 1001;
@@ -56,7 +56,7 @@
 
         .nav-toggle-label span {
             background: cyan;
-            height: 4px; /* Thicker lines */
+            height: 4px;
             width: 100%;
             position: absolute;
             transition: all 0.3s ease;
@@ -82,13 +82,13 @@
         }
 
         .navbar ul li {
-            margin: 0 20px; /* Increased spacing */
+            margin: 0 20px;
         }
 
         .navbar ul li a {
             text-decoration: none;
             color: #ffffff;
-            font-size: 16px; /* Readable size */
+            font-size: 16px;
             font-weight: 500;
             transition: color 0.3s ease;
         }
@@ -99,8 +99,8 @@
 
         /* Main Content */
         .main-content {
-            padding: 120px 50px 50px; /* Adjusted for larger navbar */
-            min-height: calc(100vh - 60px); /* Ensure content fills screen */
+            padding: 120px 50px 50px;
+            min-height: calc(100vh - 60px);
         }
 
         .hero {
@@ -120,7 +120,7 @@
 
         .category {
             display: inline-block;
-            background: rgba(0, 255, 255, 0.15); /* Lower opacity */
+            background: rgba(0, 255, 255, 0.15);
             padding: 6px 18px;
             border-radius: 20px;
             color: cyan;
@@ -129,7 +129,7 @@
         }
 
         h1 {
-            font-size: 4.5em; /* Slightly larger for impact */
+            font-size: 4.5em;
             font-weight: 700;
             line-height: 1.2;
             color: #ffffff;
@@ -138,7 +138,7 @@
         }
 
         p {
-            font-size: 1.3em; /* Slightly larger for readability */
+            font-size: 1.3em;
             color: #B0E0E6;
             margin-bottom: 35px;
             max-width: 500px;
@@ -149,7 +149,7 @@
             background: cyan;
             color: #0d0d0d;
             border: none;
-            padding: 15px 35px; /* Larger button */
+            padding: 15px 35px;
             font-size: 1.1em;
             font-weight: 600;
             border-radius: 30px;
@@ -193,13 +193,13 @@
         }
 
         .stat-card .stat-icon {
-            font-size: 28px; /* Larger icons */
+            font-size: 28px;
             margin-bottom: 12px;
             color: cyan;
         }
 
         .stat-card p {
-            font-size: 20px; /* Larger text */
+            font-size: 20px;
             font-weight: 600;
             color: #ffffff;
         }
@@ -222,22 +222,22 @@
         }
 
         .lock-container {
-            width: 400px; /* Slightly larger for impact */
+            width: 400px;
             height: 400px;
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(13, 13, 13, 0.1)); /* Lower opacity */
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(13, 13, 13, 0.1));
             border-radius: 50%;
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 255, 255, 0.2); /* Lower opacity */
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.15); /* Lower opacity */
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);
             animation: scalePulse 3s infinite ease-in-out;
         }
 
         .lock-icon {
-            width: 220px; /* Slightly larger */
+            width: 220px;
             height: 220px;
             animation: hologram 4s infinite ease-in-out;
         }
@@ -245,7 +245,7 @@
         .lock-icon path {
             fill: url(#lockGradient);
             stroke: cyan;
-            stroke-width: 2.5; /* Slightly thicker */
+            stroke-width: 2.5;
         }
 
         .lock-container::before {
@@ -254,7 +254,7 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2); /* Lower opacity */
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
             animation: glowPulse 3s infinite ease-in-out;
         }
 
@@ -278,7 +278,7 @@
         }
 
         @keyframes trail {
-            0% { transform: scale(1); opacity: 0.3; } /* Lower opacity */
+            0% { transform: scale(1); opacity: 0.3; }
             50% { transform: scale(1.5); opacity: 0.1; }
             100% { transform: scale(1); opacity: 0.3; }
         }
@@ -311,7 +311,7 @@
         }
 
         @keyframes glowPulse {
-            0% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.15); } /* Lower opacity */
+            0% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.15); }
             50% { box-shadow: 0 0 30px rgba(0, 255, 255, 0.25); }
             100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.15); }
         }
@@ -356,11 +356,11 @@
             }
 
             .navbar ul li {
-                margin: 25px 0; /* Increased spacing */
+                margin: 25px 0;
             }
 
             .navbar ul li a {
-                font-size: 1.8em; /* Larger for readability */
+                font-size: 1.8em;
             }
 
             .main-content {
@@ -573,7 +573,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 CyberSec. All rights reserved.</p>
+        <p>© 2025 CyberSec. All rights reserved.</p>
     </footer>
 
     <script>
