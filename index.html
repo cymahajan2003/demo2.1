@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSec - Cybersecurity Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #0d0d0d;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px; /* Increased padding for modern look */
+            background: rgba(0, 0, 0, 0.9); /* Slightly darker for professionalism */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 255, 255, 0.1);
+        }
+
+        .navbar .logo {
+            font-size: 28px; /* Larger logo */
+            font-weight: 700;
+            color: cyan;
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+
+        .nav-toggle-label {
+            display: none;
+            cursor: pointer;
+            width: 40px; /* Larger tap target */
+            height: 30px;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .nav-toggle-label span {
+            background: cyan;
+            height: 4px; /* Thicker lines */
+            width: 100%;
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle-label span:nth-child(1) { top: 0; }
+        .nav-toggle-label span:nth-child(2) { top: 12px; }
+        .nav-toggle-label span:nth-child(3) { top: 24px; }
+
+        .nav-toggle:checked ~ .nav-toggle-label span:nth-child(1) {
+            transform: rotate(45deg);
+            top: 12px;
+        }
+        .nav-toggle:checked ~ .nav-toggle-label span:nth-child(2) { opacity: 0; }
+        .nav-toggle:checked ~ .nav-toggle-label span:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 12px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0 20px; /* Increased spacing */
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px; /* Readable size */
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: cyan;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 120px 50px 50px; /* Adjusted for larger navbar */
+            min-height: calc(100vh - 60px); /* Ensure content fills screen */
+        }
+
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            max-width: 50%;
+            order: 1;
+            padding: 20px 0;
+        }
+
+        .category {
+            display: inline-block;
+            background: rgba(0, 255, 255, 0.15); /* Lower opacity */
+            padding: 6px 18px;
+            border-radius: 20px;
+            color: cyan;
+            margin-bottom: 25px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        h1 {
+            font-size: 4.5em; /* Slightly larger for impact */
+            font-weight: 700;
+            line-height: 1.2;
+            color: #ffffff;
+            margin-bottom: 25px;
+            animation: slideUp 1s ease-out;
+        }
+
+        p {
+            font-size: 1.3em; /* Slightly larger for readability */
+            color: #B0E0E6;
+            margin-bottom: 35px;
+            max-width: 500px;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .cta-button {
+            background: cyan;
+            color: #0d0d0d;
+            border: none;
+            padding: 15px 35px; /* Larger button */
+            font-size: 1.1em;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.3s ease, background 0.3s ease;
+            animation: bounceIn 1.5s ease-out;
+            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            background: #00CED1;
+        }
+
+        .cta-button span {
+            font-size: 1.3em;
+        }
+
+        .stats {
+            display: flex;
+            gap: 25px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: rgba(0, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            width: 150px;
+            backdrop-filter: blur(8px);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card .stat-icon {
+            font-size: 28px; /* Larger icons */
+            margin-bottom: 12px;
+            color: cyan;
+        }
+
+        .stat-card p {
+            font-size: 20px; /* Larger text */
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .stat-card p span {
+            display: block;
+            font-size: 13px;
+            font-weight: 400;
+            color: #B0E0E6;
+        }
+
+        .hero-graphic {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            height: 100%;
+            order: 2;
+        }
+
+        .lock-container {
+            width: 400px; /* Slightly larger for impact */
+            height: 400px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(13, 13, 13, 0.1)); /* Lower opacity */
+            border-radius: 50%;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 255, 255, 0.2); /* Lower opacity */
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.15); /* Lower opacity */
+            animation: scalePulse 3s infinite ease-in-out;
+        }
+
+        .lock-icon {
+            width: 220px; /* Slightly larger */
+            height: 220px;
+            animation: hologram 4s infinite ease-in-out;
+        }
+
+        .lock-icon path {
+            fill: url(#lockGradient);
+            stroke: cyan;
+            stroke-width: 2.5; /* Slightly thicker */
+        }
+
+        .lock-container::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2); /* Lower opacity */
+            animation: glowPulse 3s infinite ease-in-out;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px 50px;
+            text-align: center;
+            font-size: 14px;
+            color: #B0E0E6;
+            margin-top: 40px;
+        }
+
+        /* Animations */
+        @keyframes move {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(50px, -50px); }
+            50% { transform: translate(100px, 50px); }
+            75% { transform: translate(-50px, 100px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes trail {
+            0% { transform: scale(1); opacity: 0.3; } /* Lower opacity */
+            50% { transform: scale(1.5); opacity: 0.1; }
+            100% { transform: scale(1); opacity: 0.3; }
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes scalePulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes glowPulse {
+            0% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.15); } /* Lower opacity */
+            50% { box-shadow: 0 0 30px rgba(0, 255, 255, 0.25); }
+            100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.15); }
+        }
+
+        @keyframes hologram {
+            0% { transform: translateY(0); opacity: 0.9; filter: drop-shadow(0 0 8px cyan); }
+            50% { transform: translateY(-10px); opacity: 1; filter: drop-shadow(0 0 15px cyan); }
+            100% { transform: translateY(0); opacity: 0.9; filter: drop-shadow(0 0 8px cyan); }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .navbar .logo {
+                font-size: 24px;
+            }
+
+            .nav-toggle-label {
+                display: block;
+            }
+
+            .navbar ul {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                padding: 20px 0;
+            }
+
+            .nav-toggle:checked ~ ul {
+                transform: translateX(0);
+            }
+
+            .navbar ul li {
+                margin: 25px 0; /* Increased spacing */
+            }
+
+            .navbar ul li a {
+                font-size: 1.8em; /* Larger for readability */
+            }
+
+            .main-content {
+                padding: 100px 20px 50px;
+            }
+
+            .hero {
+                flex-direction: column;
+                padding: 0;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                margin-bottom: 40px;
+                order: 2;
+                padding: 20px 0;
+            }
+
+            .category {
+                font-size: 14px;
+                padding: 5px 15px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            p {
+                font-size: 1.1em;
+                padding: 0 10px;
+            }
+
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1em;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .stats {
+                flex-direction: row;
+                justify-content: center;
+                gap: 15px;
+                margin: 20px 0;
+            }
+
+            .stat-card {
+                width: 110px;
+                padding: 15px;
+            }
+
+            .hero-graphic {
+                width: 100%;
+                height: 300px;
+                margin-top: 20px;
+                order: 1;
+            }
+
+            .lock-container {
+                width: 250px;
+                height: 250px;
+            }
+
+            .lock-icon {
+                width: 150px;
+                height: 150px;
+            }
+
+            .cyber-glow {
+                width: 3px;
+                height: 3px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 10px 15px;
+            }
+
+            .navbar .logo {
+                font-size: 20px;
+            }
+
+            .nav-toggle-label {
+                width: 35px;
+                height: 25px;
+            }
+
+            .nav-toggle-label span:nth-child(2) { top: 10px; }
+            .nav-toggle-label span:nth-child(3) { top: 20px; }
+
+            .nav-toggle:checked ~ .nav-toggle-label span:nth-child(1) { top: 10px; }
+            .nav-toggle:checked ~ .nav-toggle-label span:nth-child(3) { top: 10px; }
+
+            .navbar ul li a {
+                font-size: 1.5em;
+                margin: 20px 0;
+            }
+
+            .main-content {
+                padding: 80px 15px 40px;
+            }
+
+            .hero {
+                padding: 0;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+
+            .stats {
+                gap: 10px;
+            }
+
+            .stat-card {
+                width: 90px;
+                padding: 10px;
+            }
+
+            .hero-graphic {
+                height: 250px;
+            }
+
+            .lock-container {
+                width: 200px;
+                height: 200px;
+            }
+
+            .lock-icon {
+                width: 120px;
+                height: 120px;
+            }
+
+            .cyber-glow {
+                width: 2px;
+                height: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">CyberSec</div>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="animation-container">
+            <section class="hero">
+                <div class="hero-content">
+                    <span class="category">🔐 Cybersecurity + Intelligence</span>
+                    <h1>
+                        YOUR SHIELD IN THE <br>
+                        DIGITAL REALM
+                    </h1>
+                    <p>Your trusted defence against digital threats, securing data, IT, and brand integrity.</p>
+                    <button class="cta-button">🛡️ Launching Soon: Cyber Security Reinvented!</button>
+                    <div class="stats">
+                        <div class="stat-card">
+                            <span class="stat-icon">🌐</span>
+                            <p>99.9%<br>Uptime</p>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-icon">📈</span>
+                            <p>10M+<br>Users</p>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-icon">💾</span>
+                            <p>5 PB<br>Storage</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-graphic">
+                    <div class="lock-container">
+                        <svg class="lock-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="lockGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:cyan;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#00CED1;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M48 20h-4v-8C44 5.373 38.627 0 32 0S20 5.373 20 12v8h-4c-2.21 0-4 1.79-4 4v28c0 2.21 1.79 4 4 4h32c2.21 0 4-1.79 4-4V24c0-2.21-1.79-4-4-4zm-12 8h-8v-8c0-2.206 1.794-4 4-4s4 1.794 4 4v8zm8 24H20v-4h24v4zm0-8H20v-4h24v4z"/>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 CyberSec. All rights reserved.</p>
+    </footer>
+
+    <script>
+        for (let i = 0; i < 50; i++) {
+            let glow = document.createElement('div');
+            glow.classList.add('cyber-glow');
+            glow.style.left = `${Math.random() * 100}vw`;
+            glow.style.top = `${Math.random() * 100}vh`;
+            glow.style.animationDuration = `${2 + Math.random() * 3}s`;
+            document.querySelector('.animation-container').appendChild(glow);
+        }
+    </script>
+</body>
+</html>
